@@ -71,3 +71,19 @@ If time or hardware constraints prevent completion, additional model optimizatio
 ## 7. Engineering Principle
 
 Measurement accuracy and reproducibility take priority over model complexity. All reported results must originate from actual experiments and be supported by saved outputs.
+
+### Initial Camera Calibration Results
+
+- Checkerboard: 9 × 7 internal corners
+- Square size: 20 mm
+- Calibration images processed: 24
+- Successful corner detections: 21
+- Detection rate: 87.5%
+- Image resolution: 2296 × 4080
+- OpenCV RMS reprojection error: 2.2359 pixels
+- Mean reprojection error: 1.7436 pixels
+- Maximum reprojection error: 3.2611 pixels
+- Calibration output: calibration/calibration_data.npz
+
+Three images failed checkerboard detection. Calibration completed using
+the 21 successfully detected images.
