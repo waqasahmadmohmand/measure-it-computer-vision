@@ -42,6 +42,24 @@ copies with the original filenames to `dataset/images_undistorted/`. It fails
 before writing if any source image has an incompatible resolution. Label these
 undistorted images so each mask aligns with the image used for training.
 
+## Manual Mask Annotation
+
+Run the local OpenCV polygon annotator from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe dataset\annotate_book.py
+```
+
+For each image, left-click around the **visible rigid book boundary**, excluding
+the reference card, loose wrapping and shadows. Do not invent a hidden edge; skip
+an ambiguous image and revisit or retake it. Use the mouse wheel to zoom around
+the cursor, right-click to center the view, `U` to undo, `R` to reset, `N` to save
+and move to the next image, `S` to skip, and `Q` or `Esc` to quit. Masks are saved
+as binary PNG files in `dataset/masks/` at the source resolution. The script
+checks the committed split filenames and resumes by skipping existing masks.
+Review every saved mask before training; skipped images are not considered
+annotated.
+
 ### Initial Calibration Results
 
 | Metric | Result |
