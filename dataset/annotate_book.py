@@ -230,6 +230,8 @@ def main() -> None:
             cv2.imshow(WINDOW_NAME, canvas)
 
             key = cv2.waitKey(20) & 0xFF
+            if ord("A") <= key <= ord("Z"):
+                key += ord("a") - ord("A")
             if key in (ord("q"), 27):
                 cv2.destroyAllWindows()
                 print("Stopped. Existing masks were kept; rerun to resume.")
